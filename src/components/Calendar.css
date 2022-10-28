@@ -1,0 +1,34 @@
+.fc .fc-toolbar.fc-header-toolbar {
+    flex-wrap: wrap;
+}
+
+.fc-toolbar-chunk {
+    width: -moz-available;
+    padding: 2% 5%;
+}
+
+.calendar-container {
+    padding: 0 5%;
+    height: max-content;
+}
+
+.fc .fc-view-harness {
+    height: 30rem !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+    font-size: small;
+}
+
+.fc-daygrid-block-event .fc-event-title {
+    font-size: x-small;
+}
+
+.fc-timegrid-event .fc-event-time {
+    white-space: pre-line;
+}
+
+.fc-v-event .fc-event-title {
+    font-size: small;
+    white-space: pre-line;
+}
