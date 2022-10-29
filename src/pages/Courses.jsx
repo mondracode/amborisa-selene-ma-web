@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import CourseGrade from "../components/CourseGrade";
+import CourseGrade from "../components/Courses/CourseGrade";
 
-const CoursesPage = () => {
+const Courses = () => {
 
     const [isVisible, setVisible] = useState(false);
 
@@ -92,4 +92,4 @@ const CoursesPage = () => {
     )
 }
 
-export default CoursesPage;
+export default Courses;

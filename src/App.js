@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Schedule from './pages/Schedule';
-import CoursesPage from "./pages/CoursesPage";
+import CoursesPage from "./pages/Courses";
+import Home from "./pages/Home";
 
 function App() {
   return (
