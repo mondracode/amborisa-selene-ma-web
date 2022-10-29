@@ -1,9 +1,12 @@
-const axios = require('axios').default;
-
-const rest = axios.create({
-  baseURL: 'https://some-domain.com/api/',
+import axios from 'axios';
+export const cronos = axios.create({
+  baseURL: 'https://ambrosia-cronos-ag-4axjffbidq-uc.a.run.app',
   timeout: 1000,
   headers: { 'X-Custom-Header': 'foobar' }
 });
 
-export default rest
+export const atlas = axios.create({
+  baseURL: 'https://ambrosia-cronos-ag-4axjffbidq-uc.a.run.app',
+  timeout: 1000,
+  headers: { 'X-Custom-Header': 'foobar' }
+});

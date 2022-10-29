@@ -4,6 +4,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 import './Calendar.css';
+import { getCourses } from '../api/cronos';
 
 const events = [
   { title: "Festivo", start: '2022-10-24' },
@@ -26,6 +27,9 @@ const events = [
 ];
 
 const Calendar = () => {
+
+  getCourses();
+
   return (
     <div className="calendar-container">
       <FullCalendar
