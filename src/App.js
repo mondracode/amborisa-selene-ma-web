@@ -1,10 +1,10 @@
-
 import Schedule from './pages/Schedule';
+import CoursesPage from "./pages/CoursesPage";
 
 function App() {
   return (
     <div className="container mx-auto">
-      <Schedule />
+      <CoursesPage/>
     </div>
   );
 }
