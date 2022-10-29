@@ -1,13 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Schedule from './pages/Schedule';
 import CoursesPage from "./pages/CoursesPage";
 
 function App() {
   return (
-    <div className="container mx-auto">
-      <CoursesPage />
-      <h1>asdasd</h1>
-      <Schedule />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/history" element={<CoursesPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

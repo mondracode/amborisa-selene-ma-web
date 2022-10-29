@@ -18,12 +18,23 @@ const events = [
     title: 'Arquitectura de Software'
   },
   {
-    daysOfWeek: ['3'], // these recurrent events move separately
+    groupId: '1', // recurrent events in this group move together
+    daysOfWeek: ['1', '3'],
     startTime: '11:00:00',
-    endTime: '11:30:00',
-    color: 'red',
-    title: 'Almuerzo'
-  }
+    endTime: '13:00:00',
+    startRecur: '2022-08-08T12:00:00-05:00',
+    endRecur: '2022-12-08T12:00:00-05:00',
+    title: 'Introducción a la criptografía'
+  },
+  {
+    groupId: '1', // recurrent events in this group move together
+    daysOfWeek: ['1', '3'],
+    startTime: '16:00:00',
+    endTime: '18:00:00',
+    startRecur: '2022-08-08T12:00:00-05:00',
+    endRecur: '2022-12-08T12:00:00-05:00',
+    title: 'Taller de Proyectos Interdisciplinarios'
+  },
 ];
 
 const Calendar = () => {
