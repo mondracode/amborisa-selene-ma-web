@@ -1,12 +1,11 @@
 import Schedule from './pages/Schedule';
-import CoursesPage from "./pages/CoursesPage";
+import CoursesPage from "./pages/Courses";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="container mx-auto">
-      <CoursesPage />
-      <h1>asdasd</h1>
-      <Schedule />
+      <Home/>
     </div>
   );
 }
