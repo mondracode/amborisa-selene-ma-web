@@ -1,6 +1,6 @@
-import CourseGrade from "../components/CourseGrade";
+import CourseGrade from "../components/Courses/CourseGrade";
 
-const CoursesPage = () => {
+const Courses = () => {
 
     // !TODO: Fetch data from API and map response
 
@@ -28,4 +28,4 @@ const CoursesPage = () => {
     )
 }
 
-export default CoursesPage;
+export default Courses;
