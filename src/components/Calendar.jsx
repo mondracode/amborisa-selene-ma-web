@@ -4,10 +4,11 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 import './Calendar.css';
-import { getCourses } from '../api/cronos';
+import {useEffect, useState} from "react";
+import {cronos} from "../api/rest";
 
 const events = [
-  { title: "Festivo", start: '2022-10-24' },
+  {title: "Festivo", start: '2022-10-24'},
   {
     groupId: '1', // recurrent events in this group move together
     daysOfWeek: ['2', '4'],
@@ -38,8 +39,37 @@ const events = [
 ];
 
 const Calendar = () => {
+  const [userCourses, setUserCourses] = useState([]);
 
-  getCourses();
+  useEffect(() => {
+    cronos.post('/graphql', {
+      query: `query {
+        UserCourses(userCode: "12345"){
+          courseCode
+          groupCode
+          name   
+          professor{
+              code
+              username
+              name
+          }
+          schedules{
+              day
+              building
+              classroom
+              timeOfStart
+              timeOfEnd
+          }            
+        }
+      }`,
+      variables: {}
+    }).then((response) => {
+      setUserCourses(response.data.data.UserCourses);
+    }).catch(() => {
+      return [];
+    });
+  }, []);
+
 
   return (
     <div className="calendar-container">
