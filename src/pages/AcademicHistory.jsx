@@ -47,7 +47,66 @@ const AcademicHistory = () => {
       }`,
       variables: {}
     }).then((response) => {
-      setAcademicHistories(response.data.data.AcademicHistories);
+      //setAcademicHistories(response.data.data.AcademicHistories);
+      setAcademicHistories([
+        {
+          "academicHistoryCode": "1010",
+          "userCode": "67890",
+          "pa": 3.98,
+          "papa": 3.94,
+          "programInfo": {
+            "code": "2879",
+            "name": "Ingeniería de sistemas y computación"
+          },
+          "progressInfo": {
+            "total": 52.72,
+            "disciplinar": 18.51,
+            "fundamentacion": 43.13,
+            "libreEleccion": 90.9,
+            "nivelacion": 100
+          },
+          "creditsInfo": {
+            "total": 81,
+            "disciplinar": 18,
+            "fundamentacion": 15,
+            "libreEleccion": 23,
+            "nivelacion": 20
+          },
+          "semesters": [
+            {
+              "semesterLabel": "2020-1S",
+              "courses": [
+                {
+                  "code": "2025975",
+                  "credits": 3,
+                  "grade": 3,
+                  "name": "Pensamiento sistémico",
+                  "passed": 1
+                },
+                {
+                  "code": "42069",
+                  "credits": 3,
+                  "grade": 3,
+                  "name": "Sistemas de información",
+                  "passed": 1
+                }
+              ]
+            },
+            {
+              "semesterLabel": "2017-2S",
+              "courses": [
+                {
+                  "code": "2025975",
+                  "credits": 3,
+                  "grade": 3,
+                  "name": "Introducción a la ingeniería de sistemas y computación",
+                  "passed": 1
+                }
+              ]
+            }
+          ]
+        }
+      ])
     }).catch((err) => {
       console.log(err)
     });
@@ -76,7 +135,7 @@ const AcademicHistory = () => {
         <div className={"grid gap-4 grid-cols-2 pt-2"}>
           <ContentWidget
             title={"Créditos pendientes"}
-            value={chosenHistory.creditsInfo.total - (chosenHistory.creditsInfo.total * (chosenHistory.progressInfo.total / 100))}
+            value={Math.floor(chosenHistory.creditsInfo.total - (chosenHistory.creditsInfo.total * (chosenHistory.progressInfo.total / 100)))}
           />
           <ContentWidget
             title={"Porcentaje de avance"}
@@ -87,7 +146,7 @@ const AcademicHistory = () => {
       <div className={"pt-2"}>
         <h1 className={"py-3 font-manrope font-bold text-2xl"}>Mi progreso</h1>
         <img className={"flex justify-center px-10"}
-             src={"https://sites.google.com/site/newtambiensoyunal/_/rsrc/1468883157027/home/concursos-tsu/concurso-1---el-nombre-del-munequito-del-sia/InSianaJones.jpg"}
+             src={"../assets/guy/10.jpg"}
              alt={"Avance grafico"}/>
       </div>
       <div className={"pt-2"}>

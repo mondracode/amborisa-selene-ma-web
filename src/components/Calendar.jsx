@@ -93,19 +93,20 @@ const Calendar = () => {
           minute: '2-digit',
           meridiem: false
         }}
-        events={userCourses.map((course) => (
-          {
-            groupId: '1', // recurrent events in this group move together
-            daysOfWeek: course.schedules.map((schedule) => (
-              weekdays.indexOf(schedule.day).toString()
-            )),
-            startTime: course.schedules[0].timeOfStart,
-            endTime: course.schedules[0].timeOfEnd,
-            startRecur: '2022-08-08T12:00:00-05:00',
-            endRecur: '2022-12-08T12:00:00-05:00',
-            title: course.name
-          }
-        ))}
+        events={events}
+        // events={userCourses.map((course) => (
+        //   {
+        //     groupId: '1', // recurrent events in this group move together
+        //     daysOfWeek: course.schedules.map((schedule) => (
+        //       weekdays.indexOf(schedule.day).toString()
+        //     )),
+        //     startTime: course.schedules[0].timeOfStart,
+        //     endTime: course.schedules[0].timeOfEnd,
+        //     startRecur: '2022-08-08T12:00:00-05:00',
+        //     endRecur: '2022-12-08T12:00:00-05:00',
+        //     title: course.name
+        //   }
+        // ))}
         hiddenDays={[0]}
       />
     </div>
