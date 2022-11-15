@@ -28,7 +28,7 @@ const Calendar = () => {
   useEffect(() => {
     cronos.post('/graphql', {
       query: `query {
-        UserCourses(userCode: "123456"){
+        UserCourses(userCode: "pperez0"){
           courseCode
           groupCode
           name   

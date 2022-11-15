@@ -81,14 +81,14 @@ const AcademicHistory = () => {
           />
           <ContentWidget
             title={"Porcentaje de avance"}
-            value={`${((chosenHistory.progressInfo.total / chosenHistory.creditsInfo.total)* 100).toFixed(2)}%`}
+            value={`${((chosenHistory.progressInfo.total / chosenHistory.creditsInfo.total) * 100).toFixed(2)}%`}
           />
         </div>
       </div>
       <div className={"pt-2"}>
         <h1 className={"py-3 font-manrope font-bold text-2xl"}>Mi progreso</h1>
-        <img className={"flex justify-center px-10"}
-             src={"../assets/guy/10.jpg"}
+        <img className={"flex justify-center align-middle px-10"}
+             src={`/assets/guy/${Math.floor(((chosenHistory.progressInfo.total / chosenHistory.creditsInfo.total) * 100) / 5) * 5}.jpg`}
              alt={"Avance grafico"}/>
       </div>
       <div className={"pt-2"}>
