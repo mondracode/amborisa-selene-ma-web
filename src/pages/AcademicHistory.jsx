@@ -62,7 +62,6 @@ const AcademicHistory = () => {
 
   return !!chosenHistory && Object.keys(chosenHistory).length !== 0 ? (
     <div className={"p-6"}>
-      {chosenHistory.userCode}
       <div className={"pt-2"}>
         <select onChange={(code) => {
           setChosenHistory(academicHistories[parseInt(code)])
@@ -87,7 +86,7 @@ const AcademicHistory = () => {
       </div>
       <div className={"pt-2"}>
         <h1 className={"py-3 font-manrope font-bold text-2xl"}>Mi progreso</h1>
-        <img className={"flex justify-center align-middle px-10"}
+        <img className={"flex justify-center align-middle px-10 drop-shadow-lg"}
              src={`/assets/guy/${Math.floor(((chosenHistory.progressInfo.total / chosenHistory.creditsInfo.total) * 100) / 5) * 5}.jpg`}
              alt={"Avance grafico"}/>
       </div>
