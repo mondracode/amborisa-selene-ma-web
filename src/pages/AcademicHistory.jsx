@@ -10,7 +10,7 @@ const AcademicHistory = () => {
   useEffect(() => {
     cronos.post('/graphql', {
       query: `query {
-        AcademicHistories(userCode: "67890", academicHistoryCode: "1010"){
+        AcademicHistories(userCode: "123456", academicHistoryCode: "123456-01"){
         userCode
         academicHistoryCode
         pa
@@ -47,66 +47,8 @@ const AcademicHistory = () => {
       }`,
       variables: {}
     }).then((response) => {
-      //setAcademicHistories(response.data.data.AcademicHistories);
-      setAcademicHistories([
-        {
-          "academicHistoryCode": "1010",
-          "userCode": "67890",
-          "pa": 3.98,
-          "papa": 3.94,
-          "programInfo": {
-            "code": "2879",
-            "name": "Ingeniería de sistemas y computación"
-          },
-          "progressInfo": {
-            "total": 52.72,
-            "disciplinar": 18.51,
-            "fundamentacion": 43.13,
-            "libreEleccion": 90.9,
-            "nivelacion": 100
-          },
-          "creditsInfo": {
-            "total": 81,
-            "disciplinar": 18,
-            "fundamentacion": 15,
-            "libreEleccion": 23,
-            "nivelacion": 20
-          },
-          "semesters": [
-            {
-              "semesterLabel": "2020-1S",
-              "courses": [
-                {
-                  "code": "2025975",
-                  "credits": 3,
-                  "grade": 3,
-                  "name": "Pensamiento sistémico",
-                  "passed": 1
-                },
-                {
-                  "code": "42069",
-                  "credits": 3,
-                  "grade": 3,
-                  "name": "Sistemas de información",
-                  "passed": 1
-                }
-              ]
-            },
-            {
-              "semesterLabel": "2017-2S",
-              "courses": [
-                {
-                  "code": "2025975",
-                  "credits": 3,
-                  "grade": 3,
-                  "name": "Introducción a la ingeniería de sistemas y computación",
-                  "passed": 1
-                }
-              ]
-            }
-          ]
-        }
-      ])
+      console.log(response)
+      setAcademicHistories(response.data.data.AcademicHistories);
     }).catch((err) => {
       console.log(err)
     });
