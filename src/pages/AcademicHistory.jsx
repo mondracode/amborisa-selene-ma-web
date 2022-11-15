@@ -10,7 +10,7 @@ const AcademicHistory = () => {
   useEffect(() => {
     cronos.post('/graphql', {
       query: `query {
-        AcademicHistories(userCode: "123456", academicHistoryCode: "123456-01"){
+        AcademicHistories(userCode: "pperez0", academicHistoryCode: "96024-01"){
         userCode
         academicHistoryCode
         pa
@@ -77,11 +77,11 @@ const AcademicHistory = () => {
         <div className={"grid gap-4 grid-cols-2 pt-2"}>
           <ContentWidget
             title={"Créditos pendientes"}
-            value={Math.floor(chosenHistory.creditsInfo.total - (chosenHistory.creditsInfo.total * (chosenHistory.progressInfo.total / 100)))}
+            value={Math.floor(chosenHistory.creditsInfo.total - chosenHistory.progressInfo.total)}
           />
           <ContentWidget
             title={"Porcentaje de avance"}
-            value={`${chosenHistory.progressInfo.total}%`}
+            value={`${((chosenHistory.progressInfo.total / chosenHistory.creditsInfo.total)* 100).toFixed(2)}%`}
           />
         </div>
       </div>
@@ -96,7 +96,7 @@ const AcademicHistory = () => {
         {
           chosenHistory.semesters.map((semester) => (
             <>
-              <h2 className={"font-bold text-sm"}>{semester.semesterLabel}</h2>
+              <h2 className={"font-bold text-sm mt-4"}>{semester.semesterLabel}</h2>
               {
                 semester.courses.map((course) => (
                   <AcademicHistoryGrade

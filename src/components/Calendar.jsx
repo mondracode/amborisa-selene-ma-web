@@ -18,24 +18,6 @@ import {cronos} from "../api/rest";
 //     endRecur: '2022-12-08T12:00:00-05:00',
 //     title: 'Arquitectura de Software'
 //   },
-//   {
-//     groupId: '1', // recurrent events in this group move together
-//     daysOfWeek: ['1', '3'],
-//     startTime: '11:00:00',
-//     endTime: '13:00:00',
-//     startRecur: '2022-08-08T12:00:00-05:00',
-//     endRecur: '2022-12-08T12:00:00-05:00',
-//     title: 'Introducción a la criptografía'
-//   },
-//   {
-//     groupId: '1', // recurrent events in this group move together
-//     daysOfWeek: ['1', '3'],
-//     startTime: '16:00:00',
-//     endTime: '18:00:00',
-//     startRecur: '2022-08-08T12:00:00-05:00',
-//     endRecur: '2022-12-08T12:00:00-05:00',
-//     title: 'Taller de Proyectos Interdisciplinarios'
-//   },
 // ];
 
 const weekdays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -94,19 +76,39 @@ const Calendar = () => {
           meridiem: false
         }}
         // events={events}
-        events={userCourses.map((course) => (
+        events={[
+          ...(userCourses.map((course) => (
+            {
+              groupId: '1', // recurrent events in this group move together
+              daysOfWeek: course.schedules.map((schedule) => (
+                weekdays.indexOf(schedule.day).toString()
+              )),
+              startTime: course.schedules[0].timeOfStart,
+              endTime: course.schedules[0].timeOfEnd,
+              startRecur: '2022-08-08T12:00:00-05:00',
+              endRecur: '2022-12-08T12:00:00-05:00',
+              title: course.name
+            }
+          ))),
           {
             groupId: '1', // recurrent events in this group move together
-            daysOfWeek: course.schedules.map((schedule) => (
-              weekdays.indexOf(schedule.day).toString()
-            )),
-            startTime: course.schedules[0].timeOfStart,
-            endTime: course.schedules[0].timeOfEnd,
+            daysOfWeek: ['3', '5'],
+            startTime: '11:00:00',
+            endTime: '13:00:00',
             startRecur: '2022-08-08T12:00:00-05:00',
             endRecur: '2022-12-08T12:00:00-05:00',
-            title: course.name
-          }
-        ))}
+            title: 'Introducción a la criptografía'
+          },
+          {
+            groupId: '1', // recurrent events in this group move together
+            daysOfWeek: ['1', '3'],
+            startTime: '16:00:00',
+            endTime: '18:00:00',
+            startRecur: '2022-08-08T12:00:00-05:00',
+            endRecur: '2022-12-08T12:00:00-05:00',
+            title: 'Taller de Proyectos Interdisciplinarios'
+          },
+        ]}
         hiddenDays={[0]}
       />
     </div>

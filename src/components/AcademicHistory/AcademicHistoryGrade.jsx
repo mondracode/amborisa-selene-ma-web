@@ -7,7 +7,7 @@ const AcademicHistoryGrade = (props) => {
                     <div className={"text-gray-400"}>Código {props.code}</div>
                 </div>
                 <div className={"grid justify-items-end self-center"}>
-                    <h2 className={"font-bold align-middle text-lg"}>{props.status}</h2>
+                    <h2 className={props.status < 3 ? "font-bold align-middle text-lg text-red-700" : "font-bold align-middle text-lg"}>{props.status}</h2>
                 </div>
             </div>
             <hr className={"mt-2"}/>
